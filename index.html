@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pauline Peeters, développeuse full-stack</title>
+  <meta name="description" content="Portfolio de Pauline Peeters : applications web complètes, de la base de données au déploiement. React, Node.js, Laravel, PostgreSQL, Docker.">
+  <meta property="og:title" content="Pauline Peeters, développeuse full-stack">
+  <meta property="og:description" content="Applications web complètes, de la base de données au déploiement.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#projets">Aller aux projets</a>
+
+  <header class="top">
+    <a class="mark" href="#" aria-label="Accueil">{ pp }</a>
+    <nav aria-label="Navigation principale">
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="nom">
+      <h1 id="nom" class="bracketed">
+        <span class="brace brace-open" aria-hidden="true">{</span>
+        <span class="name">Pauline<br>Peeters</span>
+        <span class="brace brace-close" aria-hidden="true">}</span>
+      </h1>
+      <p class="lede">
+        Développeuse web full-stack. Je construis des applications entières&nbsp;:
+        la base de données, l’API, l’interface, puis la mise en production sur mon
+        propre serveur. Certaines tournent aujourd’hui pour de vrais utilisateurs.
+      </p>
+      <p class="hero-links">
+        <a class="button" href="#contact">Me contacter</a>
+        <a href="https://github.com/PaulinePeeters">GitHub</a>
+        <a href="https://www.linkedin.com/in/pauline-peeters-dev">LinkedIn</a>
+      </p>
+    </section>
+
+    <section id="projets" class="projects" aria-labelledby="projets-titre">
+      <h2 id="projets-titre">Projets choisis</h2>
+
+      <article class="case">
+        <header class="case-head">
+          <h3>RestOS</h3>
+          <p class="case-kind">Logiciel de gestion de restaurant, mon travail de fin d’études</p>
+        </header>
+        <div class="case-body">
+          <p>
+            Un seul outil pour tout le restaurant&nbsp;: la salle prend les commandes
+            sur un plan de tables interactif, la cuisine les voit arriver en direct sur
+            son écran, et le gérant suit les stocks, le personnel et les ventes.
+          </p>
+          <ul class="facts">
+            <li>Commandes synchronisées en temps réel entre salle et cuisine (Socket.IO)</li>
+            <li>Plan de salle éditable dessiné sur canvas (React Konva)</li>
+            <li>Rôles et permissions, plannings, absences, pointage</li>
+            <li>Stocks, allergènes, factures PDF, QR codes, tableaux de bord</li>
+            <li>API testée et documentée avec une collection Postman complète</li>
+          </ul>
+          <p class="stack">React 19, TypeScript, Node.js, Express, PostgreSQL, Prisma, Zod, JWT, Docker</p>
+          <p class="case-links"><a href="https://github.com/PaulinePeeters/restos">Voir le code</a></p>
+        </div>
+      </article>
+
+      <article class="case">
+        <header class="case-head">
+          <h3>ArtStock</h3>
+          <p class="case-kind">Gestion d’inventaire, en production</p>
+        </header>
+        <div class="case-body">
+          <p>
+            Une application qui remplace les tableurs&nbsp;: inventaire des œuvres et du
+            matériel, calendrier, exports PDF. Je l’ai migrée d’un hébergement Render
+            vers mon VPS, sans perte de données.
+          </p>
+          <ul class="facts">
+            <li>Front React et API Express séparés, authentification JWT</li>
+            <li>Exports PDF générés côté navigateur (jsPDF)</li>
+            <li>Trois conteneurs Docker derrière Nginx Proxy Manager, HTTPS Let’s Encrypt</li>
+            <li>Sauvegardes PostgreSQL et procédure de restauration documentée</li>
+          </ul>
+          <p class="stack">React, Express, Prisma, PostgreSQL 17, Docker Compose, VPS Debian</p>
+          <p class="case-links"><a href="https://artstock.be">Voir le site</a> <a href="https://github.com/PaulinePeeters/artstock">Voir le code</a></p>
+        </div>
+      </article>
+
+      <article class="case">
+        <header class="case-head">
+          <h3>Boutique et portail étudiant</h3>
+          <p class="case-kind">Site e-commerce, projet client de WebProject</p>
+        </header>
+        <div class="case-body">
+          <p>
+            Trois sites en un&nbsp;: une boutique d’affiches, un back-office pour la
+            cliente, et un portail où ses étudiants regardent des vidéos de cours
+            protégées et déposent leurs travaux.
+          </p>
+          <ul class="facts">
+            <li>Laravel 11 en MVC classique, un fichier de routes par espace</li>
+            <li>Vidéos protégées servies via Bunny.net Stream et CDN</li>
+            <li>Site bilingue français et anglais</li>
+            <li>Architecture documentée pour qu’une autre personne puisse reprendre le code</li>
+          </ul>
+          <p class="stack">PHP 8, Laravel 11, Blade, PostgreSQL, Docker, Nginx</p>
+          <p class="case-links"><a href="https://github.com/PaulinePeeters/sitevirginie">Voir le code</a></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="more" aria-labelledby="autres-titre">
+      <h2 id="autres-titre">Autres projets</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Projet</th><th scope="col">Ce que c’est</th><th scope="col">Technologies</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="https://github.com/PaulinePeeters/PlaniFooder">PlaniFooder</a></th>
+              <td>Planificateur de menus hebdomadaires qui respecte les recommandations de l’OMS et génère la liste de courses.</td>
+              <td>React, Express, Prisma, PDFKit</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/PaulinePeeters/beer-odyssey">Beer Odyssey</a></th>
+              <td>Carnet de dégustation avec statistiques et reconnaissance d’étiquettes par IA.</td>
+              <td>Next.js, NextAuth, Prisma, Gemini API</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/PaulinePeeters/brackets-studio">Brackets Studio</a></th>
+              <td>Mon site vitrine de développeuse indépendante (<a href="https://brackets-studio.be">brackets-studio.be</a>), avec SEO soigné et déploiement automatique.</td>
+              <td>PHP, Docker, GitLab CI/CD</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/PaulinePeeters/gestion-dispenses-isfce">Dispenses ISFCE</a></th>
+              <td>Application de gestion des demandes de dispense de cours pour l’ISFCE : dossiers, pièces justificatives, correspondances entre cours externes et unités d’enseignement. Projet de cours.</td>
+              <td>Java 21, Spring Boot, React, Keycloak, Tailwind</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/PaulinePeeters/site-webproject">WebProject</a></th>
+              <td>Site de l’agence web que je mène avec une designer UI/UX (<a href="https://webprojectbxl.com">webprojectbxl.com</a>) : services, portfolio, formulaire de contact.</td>
+              <td>PHP, PHPMailer, Docker</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="competences" class="skills" aria-labelledby="competences-titre">
+      <h2 id="competences-titre">Ce que je sais faire</h2>
+      <p class="skills-intro">Classé par couche, uniquement ce que j’ai utilisé dans les projets ci-dessus.</p>
+      <dl class="layers">
+        <div>
+          <dt>Interface</dt>
+          <dd>React, TypeScript, Next.js, Vite, CSS Modules, Tailwind, Leaflet</dd>
+        </div>
+        <div>
+          <dt>Serveur</dt>
+          <dd>Node.js, Express, Java, Spring Boot, Laravel, PHP, API REST, WebSockets, JWT, Keycloak</dd>
+        </div>
+        <div>
+          <dt>Données</dt>
+          <dd>PostgreSQL, Prisma, modélisation relationnelle, validation avec Zod</dd>
+        </div>
+        <div>
+          <dt>Mise en ligne</dt>
+          <dd>Docker Compose, VPS Linux, Nginx, HTTPS, GitLab CI/CD, Vercel</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-titre">
+      <h2 id="contact-titre">Travaillons ensemble</h2>
+      <p>Je cherche un poste de développeuse web. Écrivez-moi, je réponds rapidement.</p>
+      <p class="contact-mail"><a href="mailto:peeterspauline@hotmail.com">peeterspauline@hotmail.com</a></p>
+      <p class="hero-links">
+        <a href="https://www.linkedin.com/in/pauline-peeters-dev">LinkedIn</a>
+        <a href="https://github.com/PaulinePeeters">GitHub</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Pauline Peeters, Belgique.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+:root {
+  --ground: #eef1ee;
+  --surface: #ffffff;
+  --ink: #1c2330;
+  --muted: #5d6778;
+  --accent: #2b46d6;
+  --line: #cfd5d0;
+  --display: "Bricolage Grotesque", "Avenir Next Condensed", "Arial Narrow", system-ui, sans-serif;
+  --text: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --measure: 38rem;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #151a24;
+    --surface: #1d2431;
+    --ink: #e7eaf0;
+    --muted: #9aa3b4;
+    --accent: #8398ff;
+    --line: #2e3645;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  padding-inline: var(--gutter);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3 { font-family: var(--display); line-height: 1.05; margin: 0; }
+
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: var(--gutter); top: 1rem; background: var(--surface); padding: 0.5rem 1rem; }
+
+/* En-tête */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-block: 1.5rem;
+  max-width: 72rem;
+  margin-inline: auto;
+  font-family: var(--display);
+}
+.mark { font-weight: 700; font-size: 1.25rem; text-decoration: none; color: var(--accent); }
+.top nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.top nav a { text-decoration: none; font-weight: 500; }
+.top nav a:hover { text-decoration: underline; }
+
+main { max-width: 72rem; margin-inline: auto; }
+
+/* Hero : le nom entre accolades */
+.hero { padding-block: clamp(3rem, 10vw, 8rem) clamp(3rem, 8vw, 6rem); }
+
+.bracketed {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, 1.5vw, 1.25rem);
+  font-size: clamp(3.25rem, 12vw, 9.5rem);
+  font-weight: 800;
+  font-variation-settings: "wdth" 80;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+.brace {
+  color: var(--accent);
+  font-weight: 300;
+  font-size: 1.9em;
+  line-height: 0.8;
+  transform: translateY(-0.04em);
+}
+.name { display: block; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .brace-open { animation: open-left 900ms cubic-bezier(.2, .7, .1, 1) both; }
+  .brace-close { animation: open-right 900ms cubic-bezier(.2, .7, .1, 1) both; }
+  .name { animation: reveal 700ms 250ms ease-out both; }
+  @keyframes open-left { from { transform: translate(1.2em, -0.04em); } }
+  @keyframes open-right { from { transform: translate(-1.2em, -0.04em); } }
+  @keyframes reveal { from { opacity: 0; clip-path: inset(0 50%); } to { opacity: 1; clip-path: inset(0 0); } }
+}
+
+.lede { max-width: var(--measure); font-size: clamp(1.2rem, 2vw, 1.4rem); margin: 2.5rem 0 2rem; }
+
+.hero-links { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; font-family: var(--display); font-weight: 500; margin: 0; }
+.button {
+  background: var(--accent);
+  color: var(--surface);
+  text-decoration: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+}
+.button:hover { color: var(--surface); filter: brightness(1.1); }
+
+/* Sections */
+section h2 { font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 700; margin-bottom: 2rem; }
+.projects, .more, .skills, .contact { padding-block: clamp(3rem, 7vw, 5rem); border-top: 2px solid var(--ink); }
+
+/* Études de cas */
+.case {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 1.5rem 3rem;
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+.case:first-of-type { border-top: 0; padding-top: 0; }
+.case h3 { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 800; font-variation-settings: "wdth" 85; letter-spacing: -0.02em; }
+.case-kind { color: var(--muted); margin: 0.6rem 0 0; font-style: italic; }
+.case-body > p:first-child { margin-top: 0; }
+.case-body { max-width: var(--measure); }
+
+.facts { padding: 0; margin: 1.25rem 0; list-style: none; }
+.facts li { padding-left: 1.4rem; position: relative; margin-bottom: 0.4rem; }
+.facts li::before { content: "{"; position: absolute; left: 0; color: var(--accent); font-family: var(--display); font-weight: 700; }
+
+.stack { font-family: var(--display); font-size: 0.95rem; color: var(--muted); margin: 0; }
+.case-links { font-family: var(--display); font-weight: 600; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: 1.25rem; }
+
+/* Autres projets */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 36rem; }
+th, td { text-align: left; vertical-align: top; padding: 1rem 1.5rem 1rem 0; border-bottom: 1px solid var(--line); }
+thead th { font-family: var(--display); font-weight: 500; color: var(--muted); font-size: 0.95rem; }
+tbody th { font-family: var(--display); font-weight: 700; font-size: 1.2rem; white-space: nowrap; }
+tbody td:last-child { font-family: var(--display); font-size: 0.95rem; color: var(--muted); }
+
+/* Compétences */
+.skills-intro { color: var(--muted); margin: -1rem 0 2rem; }
+.layers { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 2rem; margin: 0; }
+.layers dt { font-family: var(--display); font-weight: 700; font-size: 1.3rem; margin-bottom: 0.5rem; }
+.layers dd { margin: 0; }
+
+/* Contact */
+.contact p { max-width: var(--measure); }
+.contact-mail { font-family: var(--display); font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; margin-block: 1.5rem; overflow-wrap: anywhere; }
+.contact-mail a { text-decoration: none; color: var(--accent); }
+.contact-mail a:hover { text-decoration: underline; }
+
+.foot { max-width: 72rem; margin-inline: auto; padding-block: 2rem 3rem; color: var(--muted); font-size: 0.95rem; border-top: 1px solid var(--line); }
+
+@media (max-width: 760px) {
+  .case { grid-template-columns: 1fr; }
+}
